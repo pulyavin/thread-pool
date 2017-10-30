@@ -1,6 +1,6 @@
 {
     "name": "pulyavin/thread-pool",
-    "description": "Wrapper of sys fork for imitate threads",
+    "description": "Imitation of threads in PHP",
     "type": "library",
     "license": "MIT",
     "authors": [

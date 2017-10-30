@@ -14,7 +14,7 @@ Installation
 0. Add the dependency:
 
     ```
-    php composer.phar require league/thread-pool
+    php composer.phar require pulyavin/thread-pool
     ```
 
 Usage
