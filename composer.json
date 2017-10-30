@@ -1,5 +1,5 @@
 {
-    "name": "league/thread-pool",
+    "name": "pulyavin/thread-pool",
     "description": "Wrapper of sys fork for imitate threads",
     "type": "library",
     "license": "MIT",
