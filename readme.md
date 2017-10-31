@@ -14,7 +14,7 @@ Installation
 0. Add the dependency:
 
     ```
-    php composer.phar require pulyavin/thread-pool
+    php composer.phar require pulyavin/thread-pool:dev-master
     ```
 
 Usage
@@ -71,7 +71,7 @@ class WorkerRunnable extends RunnableInterface
 ### Thread
 
 ```php
-$runnable = new WorkerRunnable;
+$runnable = new WorkerRunnable($logger);
 
 $thread = new \League\ThreadPool\Thread($runnable);
 $thread->setName("my awesome process");
@@ -90,18 +90,18 @@ $exitCode = $thread->readExitCode();
 ### ThreadPool
 
 ```php
-$runnable = new WorkerRunnable;
-
-$threadPoool = new \League\ThreadPool\ThreadPool;
+$threadPool = new \League\ThreadPool\ThreadPool;
 
 for ($i = 0; $i < 5; $i++) {
+    $runnable = new WorkerRunnable($logger);
+
     $thread = new \League\ThreadPool\Thread($runnable);
     $thread->setName("my awesome process #{$i}");
     
-    $threadPoool->submit($thread);
+    $threadPool->submit($thread);
 }
 
-$thread->join(true);
+$threadPool->join(true);
 ```
 
 
@@ -125,7 +125,7 @@ $daemon->run();
 
 require_once("./vendor/autoload.php");
 
-$runnable = new WorkerRunnable;
+$runnable = new WorkerRunnable($logger);
 $thread = new \League\ThreadPool\Thread($runnable);
 $thread->setName("my awesome process");
 
